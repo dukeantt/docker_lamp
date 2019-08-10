@@ -5,7 +5,7 @@ services:
     build:
       context: ./php
       args:
-        USER_NAME: 'chung'
+        USER_NAME: 'ducanh'
         UID: '1000'
     container_name: php71
     volumes:
