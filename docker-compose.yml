@@ -19,6 +19,14 @@ services:
 #      dockerfile: ./php56.Dockerfile
 #    container_name: php56
 #    entrypoint: ["echo", "Service disabled."]
+  phpcs:
+    build: ./phpci
+    container_name: phpci
+    tty: true
+    volumes:
+      - /tmp:/tmp
+    networks:
+      docker-lamp:
   httpd:
     build:
       context: ./httpd
@@ -44,6 +52,17 @@ services:
     networks:
       docker-lamp:
         ipv4_address: 10.5.0.6
+  redis:
+    image: redis:5.0.5-alpine
+    container_name: redis_da
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/data:/data
+    entrypoint: redis-server --appendonly yes
+    restart: always
+    networks:
+      docker-lamp:
 #  mongodb:
 #    image: mongo:4.0
 #    container_name: mongodb

@@ -1,0 +1,2 @@
+#!/bin/bash
+docker exec -i phpci /usr/local/bin/phpcs "$@"
