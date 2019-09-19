@@ -48,8 +48,8 @@ xdebug.remote_handler=dbgp" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.i
 && sed -i 's/^/;/' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
 
 # Set memory_limit
-&& echo "php_admin_value[memory_limit] = 512M" >> /usr/local/etc/php-fpm.d/www.conf \
-&& echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/memory_limit.ini \
+&& echo "php_admin_value[memory_limit] = 1G" >> /usr/local/etc/php-fpm.d/www.conf \
+&& echo "memory_limit = 1G" >> /usr/local/etc/php/conf.d/memory_limit.ini \
 
 # Set execution timeout
 && echo "request_terminate_timeout = 0" >> /usr/local/etc/php-fpm.d/www.conf \
